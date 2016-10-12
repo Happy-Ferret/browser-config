@@ -1,0 +1,104 @@
+@import '_normalize.styl'
+
+grid = 20px;
+radius = 3px;
+
+close-control = #ff6058;
+minimize-control = #ffbd2e;
+maximize-control = #29cd42;
+
+html,
+*,
+*:before,
+*:after
+  box-sizing: border-box;
+  
+body
+  font: message-box;
+  background: #fafafa;
+  
+.wrapper
+  width: 90%;
+  margin: 0 auto;
+  
+.themes-container 
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  
+.theme-set 
+  flex: 0 0 100%;
+  
+.theme-element
+  display: flex;
+  align-items: center;
+  margin: 0 0 2px;
+  font-family: monospace;
+  label
+    color: #8b2ca0;
+    font-size: 12px;
+    display: block;
+    white-space: nowrap;
+  input
+    background: none;
+    border: 0;
+    color: #198e6a;
+    font-size: 12px;
+    padding: 0 2px;
+    width: 100%;
+    &:focus
+      outline: none;
+      color: #f34f4f;
+
+.browser
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 100%;
+  border-radius: radius;
+  box-shadow: 0 0 0 1px #00000033, 0 0 20px #00000022;
+  overflow: hidden;
+  margin: 50px 0 10px;
+  
+.os-controls
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 52px;
+  margin: 0 8px;
+  > div
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    
+  .close
+    background: close-control;
+    border: .5px solid darken(close-control, 20);
+
+  .minimize
+    background: minimize-control;
+    border: .5px solid darken(minimize-control, 16);
+  
+  .maximize
+    background: maximize-control;
+    border: .5px solid darken(maximize-control, 12);
+
+.favicon,
+.tab-close {
+  border-radius: radius;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.favicon {
+  background: rgba(0,0,0,.2);
+}
+
+
+.tool-icon
+  display: flex;
+  align-items: center;
+
+.tab-text {
+  white-space: nowrap;
+}
