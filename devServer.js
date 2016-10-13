@@ -19,7 +19,8 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 7770;
+console.log(port);
 
 app.listen(port, 'localhost', function(err) {
   if (err) {
