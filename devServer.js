@@ -19,7 +19,9 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(80, 'localhost', function(err) {
+var port = process.env.PORT || 3000;
+
+app.listen(port, 'localhost', function(err) {
   if (err) {
     console.log(err);
     return;
