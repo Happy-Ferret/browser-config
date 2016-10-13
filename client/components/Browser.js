@@ -32,15 +32,29 @@ class Browser extends React.Component {
             margin: ${theme.tabText['margin']};
           }
 
+          .svg-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
           & .close-svg,
-          & .hamburger-svg {
+          & .hamburger-svg,
+          $ .back-svg {
             fill: ${theme.globals['svg-fill']};
-            transition: fill 75ms;
+            transition: all 150ms;
           }
 
           & .svg-wrapper:hover .hamburger-svg,
+          & .svg-wrapper:hover .back-svg,
           & .close-svg:hover {
             fill: ${theme.globals['svg-fill:hover']};
+          }
+
+          & .svg-wrapper:active .hamburger-svg,
+          & .svg-wrapper:active .back-svg,
+          & .close-svg:active {
+            fill: ${theme.globals['svg-fill:active']};
           }
 
           & .tab {
@@ -74,6 +88,29 @@ class Browser extends React.Component {
             box-shadow: ${theme.tab['&:active box-shadow']};
           }
 
+          .back {
+            transition: background 150ms;
+            border: ${theme.back['border']};
+            border-radius: ${theme.back['border-radius']};
+            flex: ${theme.back['flex']};
+            height: ${theme.back['height']};
+            margin: ${theme.back['margin']};
+            background: ${theme.back['background']};
+            position: relative;
+          }
+
+          .back:hover {
+            background: ${theme.back['&:hover background']};
+          }
+
+          .back:active {
+            background: ${theme.back['&:active background']};
+          }
+
+          .back-svg {
+            position: relative;
+            top: 1px;
+          }
 
           & .tab-text {
             flex: 1 1 ${theme.tabText['flex-basis']};
@@ -81,6 +118,7 @@ class Browser extends React.Component {
 
           & .tool-bar {
             display: flex;
+            align-items: stretch;
             border-top: ${theme.toolBar['border-top']};
           }
 
@@ -92,12 +130,25 @@ class Browser extends React.Component {
             height: ${theme.search['height']};
             margin: ${theme.search['margin']};
             padding: ${theme.search['padding']};
+            line-height: ${theme.search['line-height']};
+          }
+
+          & .search:focus {
+            box-shadow: ${theme.search['&:focus box-shadow']};
           }
 
           & .hamburger {
             border-left: ${theme.hamburger['border-left']};
             flex: 0 0 ${theme.hamburger['width']};
             justify-content: center;
+          }
+
+          .hamburger:hover {
+            background: ${theme.hamburger['&:hover background']};
+          }
+
+          .hamburger:active {
+            background: ${theme.hamburger['&:active background']};
           }
         `}>
           <div className="browser">
@@ -112,6 +163,9 @@ class Browser extends React.Component {
                 <div className="tab-increment"/>
               </div>
               <div className="tool-bar">
+                <div className="back svg-wrapper">
+                  <Isvg src="/svg/back.svg" />
+                </div>
                 <input type="text" className="search" defaultValue="search"/>
                 <div className="hamburger tool-icon svg-wrapper">
                   <Isvg src="/svg/hamburger.svg" />
