@@ -1,20 +1,29 @@
 var path = require('path');
 var express = require('express');
-var favicon = require('serve-favicon');
-
+var webpack = require('webpack');
+var config = require('./webpack.config.dev');
 
 var app = express();
+var compiler = webpack(config);
 
-app.set('port', (process.env.PORT || 7770));
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
 
 app.use(express.static('dist'));
-app.use(favicon(__dirname + '/dist/images/favicon.ico'));
+
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'devIndex.html'));
 });
 
+app.listen(7770, 'localhost', function(err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+  console.log('Listening at http://localhost:7770');
 });

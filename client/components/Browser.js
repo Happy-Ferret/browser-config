@@ -46,7 +46,7 @@ class Browser extends React.Component {
           & .tab {
             display: flex;
             width: ${theme.tab['flex-basis']};
-            align-items: stretch;
+            align-items: center;
             justify-content: space-between;
             border-bottom: ${theme.tab['border-bottom']};
             border-left: ${theme.tab['border-left']};
