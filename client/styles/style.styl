@@ -7,6 +7,7 @@ close-control = #ff6058;
 minimize-control = #ffbd2e;
 maximize-control = #29cd42;
 
+
 html,
 *,
 *:before,
@@ -16,18 +17,51 @@ html,
 body
   font: message-box;
   background: #fafafa;
+  background: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  margin: 0;
+  
+.full-page {
+  flex: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.top
+  flex: 0 0 50%;
+  padding: 40px 0;
+
+.bottom
+  flex: 0 0 50%;
+  
+  .wrapper
+    display: flex
+    justify-content: space-between;
+  
+    > div
+      flex: 0 0 48%;
   
 .wrapper
   width: 90%;
   margin: 0 auto;
   
 .themes-container 
+  border-radius: 5px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 20px;
+  height: 250px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  background: white;
   
 .theme-set 
   flex: 0 0 100%;
+  margin: 0 0 20px; 
+  h3
+    margin-top: 0;
   
 .theme-element
   display: flex;
@@ -58,7 +92,7 @@ body
   border-radius: radius;
   box-shadow: 0 0 0 1px #00000033, 0 0 20px #00000022;
   overflow: hidden;
-  margin: 50px 0 10px;
+  background: white;
   
 .os-controls
   display: flex;
@@ -90,8 +124,19 @@ body
   height: 16px;
 }
 
-.favicon {
-  background: rgba(0,0,0,.2);
+.tab:nth-child(2) .favicon {
+  background: #FFDF81;
+  border: 1px solid #FFC446;
+}
+
+.tab:nth-child(3) .favicon {
+  background: #58E7E6;
+  border: 1px solid #28D9D2;
+}
+
+.tab:nth-child(4) .favicon {
+  background: #FFA792;
+  border: 1px solid #F67965;
 }
 
 
@@ -102,3 +147,35 @@ body
 .tab-text {
   white-space: nowrap;
 }
+
+.theme-generator
+  input 
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+    background: #0996f8;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    box-shadow 0 0 0 4px transparent;
+    transition: box-shadow 250ms;
+    
+    &:hover {
+      box-shadow: 0 0 0 2px white, 0 0 0 4px #95cdff;
+    }
+
+.theme-switcher-element {
+  padding: 10px;
+  cursor: pointer;
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow 0 0 0 4px transparent;
+  transition: box-shadow 250ms;
+  
+  &:hover {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #95cdff;
+  }
+}
+

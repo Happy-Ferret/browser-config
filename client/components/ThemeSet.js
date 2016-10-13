@@ -3,25 +3,23 @@ import ThemeElement from './ThemeElement';
 
 class ThemeSet extends React.Component {
 
-  componentWillMount() {
-    this.state = {
-      color: this.props.color
-    }
-  }
-
   render() {
-    const { themeSet, name } = this.props;
-
+    const { themeSet, themeComponentIndex } = this.props;
 
     return (
       <div className="theme-set">
-        <h3>{ name }</h3>
-        { Object.keys(themeSet).map((key, i) => 
-          <ThemeElement {...this.props} 
-            key={i}
-            parentName={name}
-            name={key}
-            themeElement={themeSet[key]} />
+        <h3>{ themeSet.name }</h3>
+        { Object.keys(themeSet).map((key, i) => {
+          if (key !== 'name') {
+            return (
+              <ThemeElement {...this.props} 
+                key={i}
+                name={key}
+                themeComponentIndex = { themeComponentIndex }
+                themeElement={themeSet[key]} />
+            )
+          }
+        }
         )}
       </div>
     )

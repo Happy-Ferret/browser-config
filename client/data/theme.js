@@ -1,66 +1,8 @@
 const theme = [
-  {
-    globals : {
-      'background': 'linear-gradient(#fafafa, #eaeaea)',
-      'border-bottom': '1px solid #ccc',
-      'color': '#444',
-      'font-size': '13px',
-      'svg-fill': '#999',
-      'svg-fill:hover': '#0297F8',
-      'svg-fill:active': '#F77000'
-    },
-    tab: {
-      'border-bottom': '',
-      'border-left': '',
-      'border-left': '',
-      'border-right': '',
-      'border-radius': '',
-      'border-top': '',
-      'margin': '0',
-      'padding': '10px',
-      '&:hover background-color': 'rgba(0,0,0,.02)',
-      '&:hover box-shadow': 'none',
-      '&:active background-color': 'rgba(0,0,0,.05)',
-      '&:active box-shadow': '0 -4px 0 #30A3FF inset'
-    },
-    tabText: {
-      'flex-basis': '100px',
-      'margin': '0 20px',
-      'line-height': '15px'
-    },
-    toolBar: {
-      'border-top': '1px solid #ccc',
-      'padding': '10px 0 10px 10px'
-    },
-    back: {
-      'border-radius': '50%',
-      'flex': '0 0 36px',
-      'height': '36px',
-      'margin': '6px -20px 6px 10px',
-      'border': '1px solid #aaa',
-      'background': 'white',
-      '&:hover background': '#fafafa',
-      '&:active background': '#f2f2f2'
-    },
-    search: {
-      'border': '1px solid #ccc',
-      'border-radius': '3px',
-      'box-shadow': '0',
-      'height': '28px',
-      'line-height': '20px',
-      'font-size': '13px',
-      'padding': '0 15px',
-      'margin': '10px',
-      '&:focus box-shadow': '0 0 0 2px rgba(2,155,248,.4)'
-    },
-    hamburger: {
-      'border-left': '1px solid #ccc',
-      'width' : '50px',
-      '&:hover background': 'rgba(0,0,0,.02)',
-      '&:active background': 'rgba(0,0,0,.05)',
-    }
-  }
-
+[{"name":"globals","background":"linear-gradient(#fafafa, #eaeaea)","border-bottom":"1px solid #ccc","color":"#444","font-size":"13px","svg-fill":"#999","svg-fill:hover":"#0297F8","svg-fill:active":"#0868BA"},{"name":"tab","border-bottom":"","border-left":"","border-right":"","border-radius":"","border-top":"","margin":"0","padding":"10px","&:hover background-color":"rgba(0,0,0,.02)","&:hover box-shadow":"none","&:active background-color":"rgba(0,0,0,.05)","&:active box-shadow":"0 -4px 0 #30A3FF inset"},{"name":"tabText","flex-basis":"100px","margin":"0 20px","line-height":"15px"},{"name":"toolBar","border-top":"1px solid #ccc","padding":"10px 0 10px 10px"},{"name":"back","border-radius":"50%","flex":"0 0 36px","height":"36px","margin":"6px -20px 6px 10px","border":"1px solid #aaa","background":"white","&:hover background":"#fafafa","&:active background":"#f2f2f2"},{"name":"search","border":"1px solid #ccc","border-radius":"3px","box-shadow":"0","height":"28px","line-height":"20px","font-size":"13px","padding":"0 15px","margin":"10px","&:focus box-shadow":"0 0 0 2px rgba(2,155,248,.4)"},{"name":"hamburger","border-left":"1px solid #ccc","width":"50px","&:hover background":"rgba(0,0,0,.02)","&:active background":"rgba(0,0,0,.05)"}],
+[{"name":"globals","background":"linear-gradient(#fafafa, #eaeaea)","border-bottom":"1px solid #ccc","color":"#444","font-size":"13px","svg-fill":"#999","svg-fill:hover":"#0297F8","svg-fill:active":"#0868BA"},{"name":"tab","border-bottom":"","border-left":"","border-right":"","border-radius":"","border-top":"","margin":"0","padding":"10px","&:hover background-color":"rgba(0,0,0,.02)","&:hover box-shadow":"none","&:active background-color":"rgba(0,0,0,.05)","&:active box-shadow":"0 -4px 0 #30A3FF inset"},{"name":"tabText","flex-basis":"100px","margin":"0 20px","line-height":"15px"},{"name":"toolBar","border-top":"1px solid #ccc","padding":"10px 0 10px 10px"},{"name":"back","border-radius":"50%","flex":"0 0 36px","height":"36px","margin":"6px -20px 6px 10px","border":"1px solid #aaa","background":"white","&:hover background":"#fafafa","&:active background":"#f2f2f2"},{"name":"search","border":"1px solid #ccc","border-radius":"3px","box-shadow":"0","height":"28px","line-height":"20px","font-size":"13px","padding":"0 15px","margin":"10px","&:focus box-shadow":"0 0 0 2px rgba(2,155,248,.4)"},{"name":"hamburger","border-left":"1px solid #ccc","width":"50px","&:hover background":"rgba(0,0,0,.02)","&:active background":"rgba(0,0,0,.05)"}],
+[{"name":"globals","background":"black","border-bottom":"1px solid #111","color":"#bababa","font-size":"13px","svg-fill":"#666","svg-fill:hover":"#999","svg-fill:active":"#429"},{"name":"tab","border-bottom":"","border-left":"","border-right":"","border-radius":"","border-top":"","margin":"0","padding":"10px","&:hover background-color":"#333","&:hover box-shadow":"none","&:active background-color":"none","&:active box-shadow":"0 -4px 0 #429 inset"},{"name":"tabText","flex-basis":" 0 0 120px","margin":"0 20px","line-height":"15px"},{"name":"toolBar","border-top":"1px solid #666","padding":"10px 0 10px 10px"},{"name":"back","border-radius":"50%","flex":"0 0 36px","height":"36px","margin":"6px -20px 6px 10px","border":"1px solid #666","background":"#000","&:hover background":"#222","&:active background":"#333"},{"name":"search","border":"1px solid #666","border-radius":"3px","box-shadow":"0","height":"28px","line-height":"20px","font-size":"13px","padding":"0 15px","margin":"10px","&:focus box-shadow":"0 0 0 2px rgba(2,155,248,.4)"},{"name":"hamburger","border-left":"1px solid #666","width":"50px","&:hover background":"#222","&:active background":"#333"}],
+[{"name":"globals","background":"linear-gradient(135deg, #9acafa, #eaaaea)","border-bottom":"1px solid #fff","color":"#444","font-size":"12px","svg-fill":"#fff","svg-fill:hover":"magenta","svg-fill:active":"magenta"},{"name":"tab","border-bottom":"","border-left":"","border-right":"","border-radius":"","border-top":"","margin":"0","padding":"10px","&:hover background-color":"rgba(0,0,0,.02)","&:hover box-shadow":"none","&:active background-color":"rgba(0,0,0,.05)","&:active box-shadow":"0 -2px 0 #fc00fa inset"},{"name":"tabText","flex-basis":"140px","margin":"0 20px","line-height":"15px"},{"name":"toolBar","border-top":"1px solid #fff","padding":"10px 0 10px 10px"},{"name":"back","border-radius":"50%","flex":"0 0 36px","height":"36px","margin":"6px -20px 6px 10px","border":"1px solid #fff","background":"#9acafa","&:hover background":"#9acafa","&:active background":"#6acafa"},{"name":"search","border":"1px solid #eee","border-radius":"3px","box-shadow":"0","height":"28px","line-height":"20px","font-size":"13px","padding":"0 15px","margin":"10px","&:focus box-shadow":"0 0 0 2px rgba(2,155,248,.4)"},{"name":"hamburger","border-left":"1px solid #fff","width":"50px","&:hover background":"rgba(0,0,0,.02)","&:active background":"rgba(0,0,0,.05)"}]
 ]
 
 export default theme;

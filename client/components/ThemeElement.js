@@ -2,6 +2,7 @@ import React from 'react';
 
 class ThemeElement extends React.Component {
 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -9,9 +10,16 @@ class ThemeElement extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.themeElement
+    })
+  }
+
+
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.changeThemeValue(this.props.name, this.props.parentName, this.state.value);
+    this.props.changeThemeValue(this.props.name, this.props.themeComponentIndex, this.state.value);
   }
 
   handleChange(evt) {
@@ -27,7 +35,7 @@ class ThemeElement extends React.Component {
       <form onSubmit={ this.handleSubmit.bind(this) } className="theme-element">
         <label htmlFor = { name } >{ name }: </label>
         <input type="text" id = { name }
-          defaultValue={ themeElement }
+          value={ this.state.value }
           onChange={ this.handleChange.bind(this) }
           onBlur={ this.handleSubmit.bind(this) } />
         <input type="submit" hidden />

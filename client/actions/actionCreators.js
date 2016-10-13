@@ -1,10 +1,24 @@
 
-export function changeThemeValue(name, parentName, value) {
+export function changeThemeValue(name, themeComponentIndex, value) {
   return {
     type: 'CHANGE_THEME_VALUE',
     name,
-    parentName,
+    themeComponentIndex,
     value
+  }
+}
+
+export function createTheme(newTheme) {
+  return {
+    type: 'ADD_THEME',
+    newTheme
+  }
+}
+
+export function changeTheme(index) {
+  return {
+    type: 'SWITCH_THEME',
+    index
   }
 }
 

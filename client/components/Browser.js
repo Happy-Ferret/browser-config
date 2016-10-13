@@ -7,15 +7,24 @@ import Tab from './Tab';
 class Browser extends React.Component {
 
   render() {
-    const i = 0;
-    const { theme, tabs } = this.props;
+    const { tabs, theme } = this.props;
     return (
-      <InlineCss stylesheet={` 
+      <InlineCss 
+         stylesheet={` 
+
+          & * {
+            transition: background: 500px;
+          }
+
+          & .tab:nth-child(1) .favicon  {
+            background: red;
+          }
+
           & .chrome {
-            background: ${theme.globals['background']};
-            color: ${theme.globals['color']};
-            font-size: ${theme.globals['font-size']};
-            border-bottom: ${theme.globals['border-bottom']};
+            background: ${theme[0]['background']};
+            color: ${theme[0]['color']};
+            font-size: ${theme[0]['font-size']};
+            border-bottom: ${theme[0]['border-bottom']};
           }
 
           & .tab-bar {
@@ -26,10 +35,10 @@ class Browser extends React.Component {
 
           & .tab-text {
             display: flex;
-            line-height: ${theme.tabText['line-height']};
-            max-width: ${theme.tabText['max-width']};
+            line-height: ${theme[2]['line-height']};
+            max-width: ${theme[2]['max-width']};
             justify-content: center;
-            margin: ${theme.tabText['margin']};
+            margin: ${theme[2]['margin']};
           }
 
           .svg-wrapper {
@@ -40,71 +49,72 @@ class Browser extends React.Component {
 
           & .close-svg,
           & .hamburger-svg,
-          $ .back-svg {
-            fill: ${theme.globals['svg-fill']};
+          & .back-svg {
+            fill: ${theme[0]['svg-fill']};
             transition: all 150ms;
           }
 
           & .svg-wrapper:hover .hamburger-svg,
           & .svg-wrapper:hover .back-svg,
           & .close-svg:hover {
-            fill: ${theme.globals['svg-fill:hover']};
+            fill: ${theme[0]['svg-fill:hover']};
           }
 
           & .svg-wrapper:active .hamburger-svg,
           & .svg-wrapper:active .back-svg,
           & .close-svg:active {
-            fill: ${theme.globals['svg-fill:active']};
+            fill: ${theme[0]['svg-fill:active']};
           }
 
           & .tab {
             display: flex;
-            width: ${theme.tab['flex-basis']};
+            width: ${theme[1]['flex-basis']};
             align-items: center;
             justify-content: space-between;
-            border-bottom: ${theme.tab['border-bottom']};
-            border-left: ${theme.tab['border-left']};
-            border-radius: ${theme.tab['border-radius']};
-            border-right: ${theme.tab['border-right']};
-            border-top: ${theme.tab['border-top']};
-            margin: ${theme.tab['margin']};
-            padding: ${theme.tab['padding']};
+            border-bottom: ${theme[1]['border-bottom']};
+            border-left: ${theme[1]['border-left']};
+            border-radius: ${theme[1]['border-radius']};
+            border-right: ${theme[1]['border-right']};
+            border-top: ${theme[1]['border-top']};
+            margin: ${theme[1]['margin']};
+            padding: ${theme[1]['padding']};
             transition: background 75ms, box-shadow 150ms;
           }
 
           & .tab-text {
-            width: ${theme.tabText['flex-basis']};
-            margin: ${theme.tabText['margin']};
-            line-height: ${theme.tabText['line-height']};
+            width: ${theme[2]['flex-basis']};
+            margin: ${theme[2]['margin']};
+            line-height: ${theme[2]['line-height']};
           }
 
           & .tab:hover {
-            background-color: ${theme.tab['&:hover background-color']};
-            box-shadow: ${theme.tab['&:hover box-shadow']};
+            background-color: ${theme[1]['&:hover background-color']};
+            box-shadow: ${theme[1]['&:hover box-shadow']};
           }
 
           & .tab.active {
-            background-color: ${theme.tab['&:active background-color']};
-            box-shadow: ${theme.tab['&:active box-shadow']};
+            background-color: ${theme[1]['&:active background-color']};
+            box-shadow: ${theme[1]['&:active box-shadow']};
           }
 
           .back {
             transition: background 150ms;
-            border: ${theme.back['border']};
-            border-radius: ${theme.back['border-radius']};
-            flex: ${theme.back['flex']};
-            height: ${theme.back['height']};
-            margin: ${theme.back['margin']};
-            background: ${theme.back['background']};
+            border: ${theme[4]['border']};
+            border-radius: ${theme[4]['border-radius']};
+            flex: ${theme[4]['flex']};
+            height: ${theme[4]['height']};
+            margin: ${theme[4]['margin']};
+            background: ${theme[4]['background']};
             position: relative;
+            top: 1px;
           }
 
           .back:hover {
-            background: ${theme.back['&:hover background']};
+            background: ${theme[4]['&:hover background']};
           }
 
           .back:active {
-            background: ${theme.back['&:active background']};
+            background: ${theme[4]['&:active background']};
           }
 
           .back-svg {
@@ -113,44 +123,44 @@ class Browser extends React.Component {
           }
 
           & .tab-text {
-            flex: 1 1 ${theme.tabText['flex-basis']};
+            flex: 1 1 ${theme[1]['flex-basis']};
           }
 
           & .tool-bar {
             display: flex;
             align-items: stretch;
-            border-top: ${theme.toolBar['border-top']};
+            border-top: ${theme[3]['border-top']};
           }
 
           & .search {
             flex: 1;
-            font-size: ${theme.search['font-size']};
-            border: ${theme.search['border']};
-            border-radius: ${theme.search['border-radius']};
-            height: ${theme.search['height']};
-            margin: ${theme.search['margin']};
-            padding: ${theme.search['padding']};
-            line-height: ${theme.search['line-height']};
+            font-size: ${theme[5]['font-size']};
+            border: ${theme[5]['border']};
+            border-radius: ${theme[5]['border-radius']};
+            height: ${theme[5]['height']};
+            margin: ${theme[5]['margin']};
+            padding: ${theme[5]['padding']};
+            line-height: ${theme[5]['line-height']};
           }
 
           & .search:focus {
-            box-shadow: ${theme.search['&:focus box-shadow']};
+            box-shadow: ${theme[5]['&:focus box-shadow']};
           }
 
           & .hamburger {
-            border-left: ${theme.hamburger['border-left']};
-            flex: 0 0 ${theme.hamburger['width']};
+            border-left: ${theme[6]['border-left']};
+            flex: 0 0 ${theme[6]['width']};
             justify-content: center;
           }
 
           .hamburger:hover {
-            background: ${theme.hamburger['&:hover background']};
+            background: ${theme[6]['&:hover background']};
           }
 
           .hamburger:active {
-            background: ${theme.hamburger['&:active background']};
+            background: ${theme[6]['&:active background']};
           }
-        `}>
+        `}>  
           <div className="browser">
             <div className="chrome">
               <div className="tab-bar">
