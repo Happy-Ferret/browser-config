@@ -1,9 +1,8 @@
 
-export function changeThemeValue(name, themeComponentIndex, value) {
+export function changeThemeValue(name, value) {
   return {
     type: 'CHANGE_THEME_VALUE',
     name,
-    themeComponentIndex,
     value
   }
 }

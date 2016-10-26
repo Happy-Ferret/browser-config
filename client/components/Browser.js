@@ -10,21 +10,19 @@ class Browser extends React.Component {
     const { tabs, theme } = this.props;
     return (
       <InlineCss 
-         stylesheet={` 
+         stylesheet={`
+
+          $toolbar-height: 50px;
 
           & * {
-            transition: background: 500px;
-          }
-
-          & .tab:nth-child(1) .favicon  {
-            background: red;
+            transition: background: 100px;
           }
 
           & .chrome {
-            background: ${theme[0]['background']};
-            color: ${theme[0]['color']};
-            font-size: ${theme[0]['font-size']};
-            border-bottom: ${theme[0]['border-bottom']};
+            background: ${theme['background']};
+            color: ${theme['color']};
+            font-size: 13px;
+            border-bottom: 1px solid ${theme['border']};
           }
 
           & .tab-bar {
@@ -33,12 +31,30 @@ class Browser extends React.Component {
             align-items: center;
           }
 
+          & .tab {
+            display: flex;
+            width: 180px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            transition: background 75ms, box-shadow 75ms;
+          }
+
+          & .tab:hover {
+            background: ${theme['tab-background-hover']};
+          }
+
+          & .tab.active {
+            background: ${theme['tab-background-active']};
+            box-shadow: 0 -4px 0 ${theme['tab-highlight-active']} inset;
+          }
+
           & .tab-text {
             display: flex;
-            line-height: ${theme[2]['line-height']};
-            max-width: ${theme[2]['max-width']};
+            line-height: 15px;
+            flex-basis: 100px;
             justify-content: center;
-            margin: ${theme[2]['margin']};
+            margin: 0 10px;
           }
 
           .svg-wrapper {
@@ -49,72 +65,50 @@ class Browser extends React.Component {
 
           & .close-svg,
           & .hamburger-svg,
-          & .back-svg {
-            fill: ${theme[0]['svg-fill']};
+          & .back-svg,
+          & .downloads-svg,
+          & .panel-svg,
+          & .hollow-star-svg {
+            fill: ${theme['svg-fill']};
             transition: all 150ms;
           }
 
-          & .svg-wrapper:hover .hamburger-svg,
-          & .svg-wrapper:hover .back-svg,
+          & .svg-wrapper:hover [class$='svg'],
+          & .tool-button:hover [class$='svg'],
           & .close-svg:hover {
-            fill: ${theme[0]['svg-fill:hover']};
+            fill: ${theme['svg-fill-hover']};
           }
 
-          & .svg-wrapper:active .hamburger-svg,
-          & .svg-wrapper:active .back-svg,
+          & .svg-wrapper:active [class$='svg'],
+          & .tool-button:active [class$='svg'],
           & .close-svg:active {
-            fill: ${theme[0]['svg-fill:active']};
+            fill: ${theme['svg-fill-active']};
           }
 
-          & .tab {
-            display: flex;
-            width: ${theme[1]['flex-basis']};
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: ${theme[1]['border-bottom']};
-            border-left: ${theme[1]['border-left']};
-            border-radius: ${theme[1]['border-radius']};
-            border-right: ${theme[1]['border-right']};
-            border-top: ${theme[1]['border-top']};
-            margin: ${theme[1]['margin']};
-            padding: ${theme[1]['padding']};
-            transition: background 75ms, box-shadow 150ms;
-          }
-
-          & .tab-text {
-            width: ${theme[2]['flex-basis']};
-            margin: ${theme[2]['margin']};
-            line-height: ${theme[2]['line-height']};
-          }
-
-          & .tab:hover {
-            background-color: ${theme[1]['&:hover background-color']};
-            box-shadow: ${theme[1]['&:hover box-shadow']};
-          }
-
-          & .tab.active {
-            background-color: ${theme[1]['&:active background-color']};
-            box-shadow: ${theme[1]['&:active box-shadow']};
+          .back-wrapper {
+            flex: 0 0 36px;
+            background: ${theme['background']};
+            position: relative;
+            z-index: 1;
+            left: 8px;
+            border-radius: 50%;
           }
 
           .back {
             transition: background 150ms;
-            border: ${theme[4]['border']};
-            border-radius: ${theme[4]['border-radius']};
-            flex: ${theme[4]['flex']};
-            height: ${theme[4]['height']};
-            margin: ${theme[4]['margin']};
-            background: ${theme[4]['background']};
-            position: relative;
-            top: 1px;
+            border: 1px solid ${theme['border']};
+            border-radius: 50%;
+            flex: 0 0 36px;
+            height: 36px;
+            background: ${theme['back-background']};
           }
 
           .back:hover {
-            background: ${theme[4]['&:hover background']};
+            background: ${theme['button-background-hover']};
           }
 
           .back:active {
-            background: ${theme[4]['&:active background']};
+            background: ${theme['button-background-active']};
           }
 
           .back-svg {
@@ -122,43 +116,52 @@ class Browser extends React.Component {
             top: 1px;
           }
 
-          & .tab-text {
-            flex: 1 1 ${theme[1]['flex-basis']};
-          }
-
           & .tool-bar {
             display: flex;
-            align-items: stretch;
-            border-top: ${theme[3]['border-top']};
+            align-items: center;
+            border-top: 1px solid ${theme['border']};
+          }
+
+          & .tool-button:hover {
+            border-color: ${theme['border']};
+            background: ${theme['button-background-hover']};
+          }
+
+          & .tool-button:active {
+            border-color: ${theme['border']};
+            background: ${theme['button-background-active']};
           }
 
           & .search {
             flex: 1;
-            font-size: ${theme[5]['font-size']};
-            border: ${theme[5]['border']};
-            border-radius: ${theme[5]['border-radius']};
-            height: ${theme[5]['height']};
-            margin: ${theme[5]['margin']};
-            padding: ${theme[5]['padding']};
-            line-height: ${theme[5]['line-height']};
+            font-size: 13px;
+            border: 1px solid ${theme['border']};
+            border-radius: 0 3px 3px 0;
+            height: 28px;
+            margin: 0 0 0 -8px;
+            padding: 0 20px;
+            outline: none;
+            line-height: 20px;
+            color: ${theme['search-color']};
           }
 
           & .search:focus {
-            box-shadow: ${theme[5]['&:focus box-shadow']};
+            box-shadow: 0 0 0 2px ${theme['search-focus-ring']};
           }
 
           & .hamburger {
-            border-left: ${theme[6]['border-left']};
-            flex: 0 0 ${theme[6]['width']};
+            border-left: 1px solid ${theme['border']};
+            flex: 0 0 50px;
+            height: 44px;
             justify-content: center;
           }
 
           .hamburger:hover {
-            background: ${theme[6]['&:hover background']};
+            background: ${theme['button-background-hover']};
           }
 
           .hamburger:active {
-            background: ${theme[6]['&:active background']};
+            background: ${theme['button-background-active']};
           }
         `}>  
           <div className="browser">
@@ -173,10 +176,29 @@ class Browser extends React.Component {
                 <div className="tab-increment"/>
               </div>
               <div className="tool-bar">
+                <div className="back-wrapper">
                 <div className="back svg-wrapper">
                   <Isvg src="/svg/back.svg" />
                 </div>
+                </div>
                 <input type="text" className="search" defaultValue="search"/>
+                <div className="tool-icons-wrapper">
+                <div className="tool-icon">
+                  <button className="tool-button svg-wrapper">
+                    <Isvg src="/svg/hollow-star.svg" />
+                  </button>
+                </div>
+                <div className="tool-icon">
+                  <button className="tool-button svg-wrapper">
+                    <Isvg src="/svg/panel.svg" />
+                  </button>
+                </div>
+                <div className="tool-icon">
+                  <button className="tool-button svg-wrapper">
+                    <Isvg src="/svg/downloads.svg" />
+                  </button>
+                </div>
+                </div>
                 <div className="hamburger tool-icon svg-wrapper">
                   <Isvg src="/svg/hamburger.svg" />
                 </div>

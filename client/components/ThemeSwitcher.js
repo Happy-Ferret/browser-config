@@ -8,16 +8,15 @@ class ThemeSwitcher extends React.Component {
     return (
       <div>
         {theme.map((el, index) => {
-          console.log();
           if (index > 0)
           return (
             <ThemeSwitcherElement 
               key={index} 
               index={index} 
               changeTheme={ changeTheme } 
-              background={theme[index][0]['background']}
-              color={theme[index][0]['color']}
-              border={theme[index][0]['border-bottom']}
+              background={theme[index]['background']}
+              color={theme[index]['color']}
+              borderColor={theme[index]['border']}
             />
         )})}
       </div>

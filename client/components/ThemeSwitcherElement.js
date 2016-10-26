@@ -5,10 +5,10 @@ class ThemeSwitcherElement extends React.Component {
     this.props.changeTheme(this.props.index);
   }
   render() {
-    const { index, background, color, border } = this.props;
+    const { index, background, color, borderColor } = this.props;
     return (
       <div className="theme-switcher-element"
-        style = {{ background, color, border }}
+        style = {{ background, color, borderColor }}
         onClick = { this.handleClick.bind(this) } > Theme {index} </div>
     );
   }

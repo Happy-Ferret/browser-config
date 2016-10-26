@@ -21,12 +21,12 @@ class Main extends React.Component {
         </div>
         <div className="bottom">
           <div className="wrapper">
-            <div>          
+            <div className="theme-switcher-wrapper">          
               <ThemeGenerator  { ...this.props } theme={ currentTheme } />
               <ThemeSwitcher  { ...this.props } theme={ theme } />
             </div>
             <div className="themes-container">
-              { Object.keys(currentTheme).map((key, i) => <ThemeSet {...this.props} key={i} themeComponentIndex={i} themeSet={currentTheme[key]} />) }
+              <ThemeSet {...this.props} theme= { currentTheme } />
             </div>
           </div>
         </div>

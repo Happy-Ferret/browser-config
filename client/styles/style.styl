@@ -13,7 +13,7 @@ html,
 *:before,
 *:after
   box-sizing: border-box;
-  
+
 body
   font: message-box;
   background: #fafafa;
@@ -22,11 +22,11 @@ body
   background-position: center center;
   margin: 0;
   
-.full-page {
+.full-page
   flex: column;
   align-items: stretch;
   min-height: 100vh;
-}
+
 
 .top
   flex: 0 0 50%;
@@ -39,29 +39,24 @@ body
     display: flex
     justify-content: space-between;
   
-    > div
-      flex: 0 0 48%;
   
 .wrapper
   width: 90%;
   margin: 0 auto;
   
+.theme-switcher-wrapper
+  flex: 0 0 28%;
+  
 .themes-container 
-  border-radius: 5px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 20px;
-  height: 250px;
-  overflow: auto;
-  border: 1px solid #ccc;
+  padding: 10px;
   background: white;
+  flex: 0 0 66%;
   
 .theme-set 
   flex: 0 0 100%;
-  margin: 0 0 20px; 
-  h3
-    margin-top: 0;
   
 .theme-element
   display: flex;
@@ -117,36 +112,50 @@ body
     border: .5px solid darken(maximize-control, 12);
 
 .favicon,
-.tab-close {
+.tab-close
   border-radius: radius;
   flex: 0 0 16px;
   width: 16px;
   height: 16px;
-}
 
-.tab:nth-child(2) .favicon {
+
+.tab:nth-child(2) .favicon
   background: #FFDF81;
   border: 1px solid #FFC446;
-}
 
-.tab:nth-child(3) .favicon {
+
+.tab:nth-child(3) .favicon
   background: #58E7E6;
   border: 1px solid #28D9D2;
-}
 
-.tab:nth-child(4) .favicon {
+
+.tab:nth-child(4) .favicon
   background: #FFA792;
   border: 1px solid #F67965;
-}
 
+.tool-icons-wrapper {
+  display: flex;
+  margin: 0 3px;
+}
 
 .tool-icon
   display: flex;
   align-items: center;
-
-.tab-text {
-  white-space: nowrap;
-}
+  
+.tool-button
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 3px;
+  padding: 0;
+  margin: 0 3px;
+  transition: border 75ms, background 75ms;
+  .isvg 
+    height: 16px;
 
 .theme-generator
   input 
@@ -161,11 +170,10 @@ body
     box-shadow 0 0 0 4px transparent;
     transition: box-shadow 250ms;
     
-    &:hover {
+    &:hover
       box-shadow: 0 0 0 2px white, 0 0 0 4px #95cdff;
-    }
 
-.theme-switcher-element {
+.theme-switcher-element
   padding: 10px;
   cursor: pointer;
   margin: 0 0 10px;
@@ -174,8 +182,6 @@ body
   box-shadow 0 0 0 4px transparent;
   transition: box-shadow 250ms;
   
-  &:hover {
+  &:hover
     box-shadow: 0 0 0 2px white, 0 0 0 4px #95cdff;
-  }
-}
 

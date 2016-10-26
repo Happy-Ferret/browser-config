@@ -3,19 +3,18 @@ function theme (state = [], action) {
   let nextTheme = [];
   switch (action.type) {
     case 'CHANGE_THEME_VALUE':
-      let placeHolder = state[0][action.themeComponentIndex];
+      let placeHolder = state[0];
       nextState = [ ...state ];
       placeHolder[action.name] = action.value;
-      nextState[0].parent = [ ...placeHolder ];
       return nextState;
     case 'ADD_THEME':
-      nextState = JSON.parse(JSON.stringify(state))
-      nextState.push([ ...action.newTheme ]);
-      console.log(JSON.stringify(action.newTheme));
+      nextState = JSON.parse(JSON.stringify(state));
+      nextState.push(Object.assign(action.newTheme,{}));
+      console.log(JSON.stringify(action.newTheme, null));
       return nextState;
     case 'SWITCH_THEME':
-      nextState = Array.from(state);
-      nextTheme = JSON.parse(JSON.stringify(state[action.index], null, '\t'))
+      nextState = JSON.parse(JSON.stringify(state));
+      nextTheme = JSON.parse(JSON.stringify(state[action.index]));
       nextState[0] = nextTheme;
       return nextState;
     default: 

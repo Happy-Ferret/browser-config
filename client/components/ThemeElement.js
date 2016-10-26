@@ -19,7 +19,7 @@ class ThemeElement extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.changeThemeValue(this.props.name, this.props.themeComponentIndex, this.state.value);
+    this.props.changeThemeValue(this.props.name, this.state.value);
   }
 
   handleChange(evt) {
